@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="animated-section"></section>
+    <div class="signin">
+        <div class="content">
+            <div class="logo">
+                <img src="https://i.postimg.cc/d1Cz1TCM/image.png" alt="Logo">
+            </div>
+            <h2>Log In</h2>
+            <div class="form">
+                <div class="inputBox">
+                    <input type="email" id="loginEmail" required>
+                    <i>البريد الإلكتروني</i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="loginPassword" required>
+                    <i>كلمة المرور</i>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <div class="links">
+                    <a href="#">Forgot Password?</a>
+                    <a href="SignUp.html">Sign Up</a>
+                </div>
+                <form onsubmit="return handleLogin(event)">
+                    <div class="inputBox">
+                        <input type="submit" value="Log In">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function createSpans() {
+            const section = document.getElementById('animated-section');
+            const existingSpans = section.querySelectorAll('span');
+            existingSpans.forEach(span => span.remove());
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            let spanSize;
+            if (screenWidth <= 320) spanSize = 28;
+            else if (screenWidth <= 480) spanSize = 35;
+            else if (screenWidth <= 768) spanSize = 50;
+            else if (screenWidth <= 1024) spanSize = Math.floor(screenWidth * 0.08);
+            else spanSize = Math.floor(screenWidth * 0.05);
+
+            const cols = Math.ceil(screenWidth / (spanSize + 1));
+            const rows = Math.ceil(screenHeight / (spanSize + 1));
+            const totalSpans = cols * rows;
+
+            for (let i = 0; i < totalSpans; i++) {
+                const span = document.createElement('span');
+                span.style.width = `${spanSize}px`;
+                span.style.height = `${spanSize}px`;
+                section.appendChild(span);
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorElement = document.getElementById('loginError');
+
+            if (!email || !password) {
+                errorElement.textContent = 'يرجى ملء جميع الحقول';
+                return false;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (!user) {
+                errorElement.textContent = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+                return false;
+            }
+
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            alert(`مرحباً ${user.username}! تم تسجيل الدخول بنجاح.`);
+            window.location.href = 'index.html';
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createSpans();
+            window.addEventListener('resize', createSpans);
+        });
+    </script>
+</body>
+</html>

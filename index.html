@@ -11,21 +11,31 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a0505 0%, #2d0a0a 50%, #1a0505 100%);
             color: #ffffff;
             overflow-x: hidden;
         }
-
-        /* تحسينات للهاتف */
-        @media (max-width: 768px) {
-            body {
-                font-size: 14px;
-            }
+        /* قسم الصيانة */
+        #maintenance {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999999999;
+            font-size: 24px;
+            color: black;
+            font-family: "Tahoma", Arial, sans-serif;
+            text-shadow: 0 0 5px #ff0000, 0 0 10px #ff3333;
+            text-align: center;
+            padding: 20px;
         }
-
         /* الخلفية المتحركة */
         .bg-animation {
             position: fixed;
@@ -36,7 +46,6 @@
             z-index: -1;
             opacity: 0.1;
         }
-
         .bg-animation::before {
             content: '';
             position: absolute;
@@ -47,13 +56,11 @@
             background: radial-gradient(circle, #dc2626 0%, transparent 70%);
             animation: rotate 20s linear infinite;
         }
-
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* الهيدر - تم تعديله للهاتف */
+        /* الهيدر - تصميم الهاتف */
         .header {
             background: rgba(20, 5, 5, 0.95);
             backdrop-filter: blur(10px);
@@ -63,9 +70,7 @@
             z-index: 1000;
             padding: 0.8rem 0;
             box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
-            transition: all 0.3s ease;
         }
-
         .nav-container {
             max-width: 100%;
             margin: 0 auto;
@@ -74,7 +79,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -84,16 +88,13 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .logo i {
             animation: pulse 2s infinite;
         }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
-
         /* قائمة التنقل - تصميم الهاتف */
         .nav-menu {
             display: none;
@@ -111,74 +112,48 @@
             z-index: 999;
             border-top: 1px solid rgba(220, 38, 38, 0.3);
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
         }
-
         .nav-menu.active {
             display: flex;
         }
-
         .nav-menu a {
             color: #ffffff;
             text-decoration: none;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 1.1rem;
             width: 80%;
             text-align: center;
+            font-size: 1rem;
         }
-
         .nav-menu a:hover {
             background: rgba(220, 38, 38, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.3);
         }
-
         /* أزرار الدخول - تصميم الهاتف */
         .auth-buttons {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
-
         .btn {
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
+            gap: 0.3rem;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, #dc2626, #b91c1c);
             color: white;
-            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.6);
-        }
-
         .btn-secondary {
             background: transparent;
             color: #dc2626;
-            border: 2px solid #dc2626;
+            border: 1px solid #dc2626;
         }
-
-        .btn-secondary:hover {
-            background: #dc2626;
-            color: white;
-            transform: translateY(-3px);
-        }
-
         /* زر القائمة المتنقلة */
         .mobile-menu-btn {
             display: block;
@@ -187,670 +162,201 @@
             color: #dc2626;
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001;
         }
-
-        /* قسم البطل - تم تعديله للهاتف */
+        /* قسم البطل - تصميم الهاتف */
         .hero {
             margin-top: 70px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
             padding: 1rem;
         }
-
         .hero-container {
             width: 100%;
-            margin: 0 auto;
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
-        }
-
-        .hero-content {
             text-align: center;
-            width: 100%;
         }
-
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             background: linear-gradient(135deg, #dc2626, #f87171);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.2;
         }
-
         .hero-content .subtitle {
-            font-size: 1.2rem;
-            color: #fca5a5;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
-
-        .hero-content .description {
             font-size: 1rem;
-            color: #d1d5db;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            padding: 0 1rem;
+            color: #fca5a5;
+            margin-bottom: 1rem;
         }
-
+        .hero-content .description {
+            font-size: 0.9rem;
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            padding: 0 0.5rem;
+        }
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .btn-hero {
-            padding: 0.8rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 30px;
-            min-width: 150px;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.9rem;
+            min-width: 120px;
         }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1rem;
-        }
-
-.hero-phone {
-  width: 219px;
-  height: 487px;
-  background: linear-gradient(135deg, #1f2937, #374151);
-  border-radius: 25px;
-  position: relative;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 
-              inset 0 0 20px rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  transform: rotateY(-15deg) rotateX(5deg);
-  animation: float 6s ease-in-out infinite;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-
-  /* هذا لقص الجزء العلوي */
-  clip-path: polygon(
-    0% 0%,  /* بداية من 20% من الأعلى */
-    100% 0%, 
-    100% 100%, 
-    0% 100%
-  );
-}
-
-/* الكاميرا الأمامية */
-.camera {
-    position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 12px;
-    background: black;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 11;
-}
-
-.home-button {
-  width: 50px;
-  height: 5px;
-  background-color: #333;
-  border-radius: 25px;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* شاشة الهاتف */
-.phone-screen {
-    width: 210px;
-    height: 460px;
-    margin: 20px auto;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* أزرار أندرويد */
-.android-buttons {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-    align-items: center;
-}
-
-/* المثلث - رجوع */
-.triangle {
-    width: 0;
-    height: 0;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-right: 10px solid white;
-}
-
-/* الدائرة - هوم */
-.circle {
-    width: 12px;
-    height: 12px;
-    border: 2px solid white;
-    border-radius: 50%;
-}
-
-/* المربع - التطبيقات */
-.square {
-    width: 10px;
-    height: 10px;
-    border: 2px solid white;
-}
-
-/* شاشة الهاتف */
-.phone-screen {
-    width: 210px;
-    height: 460px;
-    margin: 20px auto;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-}
-
-/* الشريط السفلي */
-.bottom-bar {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    z-index: 10;
-}
-
-        @keyframes float {
-            0%, 100% { transform: rotateY(-15deg) rotateX(5deg) translateY(0px); }
-            50% { transform: rotateY(-15deg) rotateX(5deg) translateY(-15px); }
-        }
-
-        .phone-screen {
-            width: 210px;
-            height: 460px;
-            background: linear-gradient(135deg, #dc2626, #7f1d1d);
-            margin: 20px auto;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phone-content {
-            padding: 1.5rem 1rem;
-            text-align: center;
-            color: white;
-        }
-
-        .phone-logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-        }
-
-        .game-icons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .game-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            backdrop-filter: blur(10px);
-        }
-
         /* قسم الميزات - تصميم الهاتف */
         .features {
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             background: rgba(0, 0, 0, 0.2);
         }
-
-        .features-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
         .section-title {
             text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
             background: linear-gradient(135deg, #dc2626, #f87171);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .section-subtitle {
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #9ca3af;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
-
         .features-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1rem;
         }
-
         .feature-card {
             background: rgba(20, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
+            padding: 1.2rem;
+            border-radius: 12px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(220, 38, 38, 0.2);
         }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
-        }
-
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: #dc2626;
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-8px); }
-            60% { transform: translateY(-4px); }
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
             margin-bottom: 0.8rem;
-            color: #ffffff;
         }
-
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+        }
         .feature-card p {
-            color: #d1d5db;
-            line-height: 1.6;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
-
         /* قسم المنتجات - تصميم الهاتف */
         .products {
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
         }
-
-        .products-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
         .products-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1rem;
         }
-
         .product-card {
             background: rgba(20, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(220, 38, 38, 0.2);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
-        }
-
-        .product-image {
-            height: 150px;
-            background: linear-gradient(135deg, #dc2626, #7f1d1d);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 0.8rem;
-            right: 0.8rem;
-            background: #dc2626;
-            color: white;
-            padding: 0.2rem 0.6rem;
             border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: bold;
+            overflow: hidden;
         }
-
+        .product-image {
+            height: 120px;
+            background: linear-gradient(135deg, #dc2626, #7f1d1d);
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .product-content {
-            padding: 1.5rem;
+            padding: 1rem;
         }
-
         .product-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
         }
-
         .product-price {
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 1.4rem;
             color: #dc2626;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
-
         .product-features {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
-
         .product-features li {
-            padding: 0.3rem 0;
+            font-size: 0.8rem;
+            padding: 0.2rem 0;
             color: #d1d5db;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
         }
-
         .product-features li::before {
             content: '✓';
             color: #dc2626;
-            font-weight: bold;
+            margin-right: 0.3rem;
         }
-
-        /* قسم الإحصائيات - تصميم الهاتف */
-        .stats {
-            padding: 3rem 1rem;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .stats-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: rgba(20, 5, 5, 0.5);
-            border-radius: 15px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #dc2626;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: #d1d5db;
-            font-size: 0.9rem;
-        }
-
-        /* قسم آراء العملاء - تصميم الهاتف */
-        .testimonials {
-            padding: 3rem 1rem;
-        }
-
-        .testimonials-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-card {
-            background: rgba(20, 5, 5, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(220, 38, 38, 0.2);
-        }
-
-        .stars {
-            color: #dc2626;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-card p {
-            color: #d1d5db;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .customer-name {
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .customer-title {
-            color: #9ca3af;
-            font-size: 0.8rem;
-        }
-
-        /* النموذج - تصميم الهاتف */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, rgba(20, 5, 5, 0.95), rgba(45, 10, 10, 0.95));
-            backdrop-filter: blur(10px);
-            margin: 10% auto;
-            padding: 0;
-            border: 1px solid rgba(220, 38, 38, 0.3);
-            border-radius: 15px;
-            width: 95%;
-            max-width: 400px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            padding: 1.5rem;
-            text-align: center;
-            color: white;
-        }
-
-        .modal-header h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-body {
-            padding: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #fca5a5;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid rgba(220, 38, 38, 0.3);
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #dc2626;
-            box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
-        }
-
-        .close {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: #fca5a5;
-        }
-
         /* الفوتر - تصميم الهاتف */
         .footer {
             background: rgba(10, 5, 5, 0.9);
-            padding: 2rem 1rem 1rem;
-            border-top: 1px solid rgba(220, 38, 38, 0.2);
+            padding: 1.5rem 1rem 1rem;
         }
-
-        .footer-container {
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
-
         .footer-section h3 {
             color: #dc2626;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
         }
-
         .footer-section p {
-            color: #d1d5db;
-            line-height: 1.6;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
         }
-
         .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            line-height: 1.8;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: block;
             padding: 0.3rem 0;
+            color: #d1d5db;
+            text-decoration: none;
         }
-
-        .footer-section a:hover {
-            color: #dc2626;
-        }
-
         .social-links {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.7rem;
+            justify-content: center;
             margin-top: 1rem;
         }
-
         .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             width: 35px;
             height: 35px;
             background: rgba(220, 38, 38, 0.2);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #dc2626;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
-
-        .social-link:hover {
-            background: #dc2626;
-            color: white;
-            transform: translateY(-3px);
-        }
-
         .footer-bottom {
             text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(220, 38, 38, 0.2);
+            font-size: 0.75rem;
             color: #9ca3af;
-            font-size: 0.8rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(220, 38, 38, 0.2);
         }
-
-        /* زر التمرير للأعلى - تصميم الهاتف */
+        /* زر التمرير للأعلى */
         .scroll-top {
             position: fixed;
             bottom: 20px;
@@ -863,337 +369,76 @@
             height: 45px;
             font-size: 1.1rem;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
             z-index: 999;
         }
-
         .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.6);
-        }
-
-        /* الإشعارات - تصميم الهاتف */
-        .notification {
-            position: fixed;
-            top: 80px;
-            right: 10px;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            z-index: 3000;
-            font-size: 0.9rem;
-            max-width: 90%;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
-        /* رسالة النجاح */
-        .success-message {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            padding: 0.8rem 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            display: none;
-            text-align: center;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* تحميل */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .spinner {
-            border: 3px solid rgba(220, 38, 38, 0.3);
-            border-radius: 50%;
-            border-top: 3px solid #dc2626;
-            width: 35px;
-            height: 35px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* تحسينات للشاشات المتوسطة */
-        @media (min-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* تحسينات للشاشات الكبيرة */
-        @media (min-width: 768px) {
-            .hero-container {
-                flex-direction: row;
-                text-align: right;
-                max-width: 1200px;
-                padding: 0 2rem;
-            }
-            
-            .hero-content {
-                text-align: right;
-                padding-right: 2rem;
-            }
-            
-            .hero-content .description {
-                padding: 0;
-            }
-            
-            .hero-buttons {
-                justify-content: flex-start;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            display: flex;
         }
     </style>
 </head>
 <body>
+    <!-- قسم الصيانة -->
+    <div id="maintenance">
+        <div class="message">🚧 الموقع في صيانة 🚧</div>
+    </div>
+
     <!-- الخلفية المتحركة -->
     <div class="bg-animation"></div>
 
-<!-- الهيدر -->
-<header class="header">
-    <div class="nav-container">
-        <div class="logo" style="display: flex; align-items: center; gap: 15px;">
-            <img src="https://i.postimg.cc/QxG6Sjnf/11zon-cropped.png" alt="Hamoda Store" 
-                 style="
-                    height: 60px;
-                    border: 2px solid #ff0000;
-                    border-radius: 50%;
-                    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
-                 ">
-            <div style="display: flex; flex-direction: column; line-height: 1.2; margin-left: 10px;">
-                <span style="font-size: 23px; font-weight: bold;">Hamoda</span>
-                <span style="font-size: 20px;">Store</span>
+    <!-- الهيدر -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/QxG6Sjnf/11zon-cropped.png" alt="Hamoda Store"
+                     style="height: 50px; border: 2px solid #ff0000; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+                <span style="font-size: 1.3rem; font-weight: bold;">Hamoda Store</span>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-secondary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    تسجيل
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
+    </header>
 
-        <div class="auth-buttons">
-            <button class="btn btn-secondary" onclick="openModal('login')">
-                <i class="fas fa-sign-in-alt"></i>
-                تسجيل الدخول
-            </button>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars" id="menuIcon"></i>
-            </button>
-        </div>
-    </div>
-</header>
-
-<!-- نموذج تسجيل الدخول (مودال) -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('login')">&times;</span>
-    <h2>تسجيل الدخول</h2>
-    <form id="contact-form" style="direction: rtl;">
-<!-- الاسم -->
-<label for="name" style="display: block; margin-top: 15px;">الاسم:</label>
-<input type="text" id="name" name="user_name" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
-
-<!-- البريد الإلكتروني -->
-<label for="email" style="display: block; margin-top: 15px;">البريد الإلكتروني:</label>
-<input type="email" id="email" name="user_email" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
-
-<!-- كلمة المرور -->
-<label for="password" style="display: block; margin-top: 15px;">كلمة المرور:</label>
-<input type="password" id="password" name="user_password" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
-
-      <button type="submit" class="btn btn-primary" style="width: 100%; background-color: #e74c3c; border: none; padding: 12px; font-size: 16px; color: white; cursor: pointer; border-radius: 5px;">
-        إرسال
-      </button>
-    </form>
-  </div>
-</div>
-
-<!-- CSS المودال المعدل -->
-<style>
-.modal {
-  display: none; /* مخفي افتراضياً */
-  position: fixed; /* ثابت في الشاشة */
-  z-index: 1000; /* فوق كل شيء */
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.7); /* خلفية شفافة مظللة */
-}
-
-.modal-content {
-  background-color: #902121; /* لون غامق */
-  margin: 10% auto;
-  padding: 20px 30px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.8);
-  color: white;
-  font-family: "Arial", sans-serif;
-}
-
-.close-btn {
-  color: white;
-  float: left;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 15px;
-}
-
-.close-btn:hover {
-  color: #e74c3c;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 6px;
-}                
-.button {
-  border-radius: 5px;
-  color: white;
-  font-size: 14px;
-}
-
-input::placeholder, textarea::placeholder {
-  color: #bbb;
-}
-</style>
-
-<!-- إضافة سكربت EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init('Ckn0Ms8VGazoWk8TM'); // مفتاحك العام
-
-  function openModal(id) {
-    document.getElementById(id + 'Modal').style.display = 'block';
-  }
-
-  function closeModal(id) {
-    document.getElementById(id + 'Modal').style.display = 'none';
-  }
-
-  // إغلاق المودال إذا ضغطت بالخارج
-  window.onclick = function(event) {
-    const modal = document.getElementById('loginModal');
-    if (event.target === modal) {
-      closeModal('login');
-    }
-  };
-
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    emailjs.sendForm('service_32kb7ll', 'template_oimsnpa', this)
-      .then(function() {
-        alert('تم إرسال رسالتك بنجاح!');
-        document.getElementById('contact-form').reset();
-        closeModal('login');
-      }, function(error) {
-        alert('حدث خطأ أثناء الإرسال: ' + JSON.stringify(error));
-      });
-  });
-</script>
-
-        <nav class="nav-menu" id="navMenu">
-            <a href="#home" onclick="toggleMenu()">الرئيسية</a>
-            <a href="#features" onclick="toggleMenu()">المميزات</a>
-            <a href="#products" onclick="toggleMenu()">المنتجات</a>
-            <a href="https://www.instagram.com/hamoda.store.1/" target="_blank">تواصل معنا</a>
-        </nav>
+    <!-- القائمة المتنقلة -->
+    <nav class="nav-menu" id="navMenu">
+        <a href="#home" onclick="toggleMenu()">الرئيسية</a>
+        <a href="#features" onclick="toggleMenu()">المميزات</a>
+        <a href="#products" onclick="toggleMenu()">المنتجات</a>
+        <a href="#" onclick="toggleMenu()">تواصل معنا</a>
+    </nav>
 
     <!-- قسم البطل -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Hamoda Store</h1>
-                <p class="subtitle">" متجر حسابات فري فاير الأكثر أمانًا "</p>
+                <p class="subtitle">متجر حسابات فري فاير الأكثر أماناً</p>
                 <p class="description">
                     احصل على أفضل حسابات فري فاير بأسعار لا تقاوم! نوفر لك حسابات عالية المستوى مع ضمان كامل على جميع المنتجات.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary btn-hero" onclick="scrollToSection('products')">
+                    <button class="btn btn-primary btn-hero">
                         <i class="fas fa-shopping-cart"></i>
-                       تسوق الآن 
+                        تسوق الآن
                     </button>
-                    <button class="btn btn-secondary btn-hero" onclick="scrollToSection('features')">
+                    <button class="btn btn-secondary btn-hero">
                         <i class="fas fa-info-circle"></i>
                         اعرف المزيد
                     </button>
                 </div>
             </div>
-<div class="hero-image">
-  <div class="hero-phone">
-    <!-- الجزء العلوي -->
-    <div class="earpiece"></div>
-    <div class="camera"></div>
-    <div class="home-button"></div>
-
-    <!-- شاشة الهاتف -->
-    <div class="phone-screen" style="
-      background: url('https://i.postimg.cc/C50BTH7R/image.png') no-repeat center center;
-      background-size: cover;
-    "></div>
-
-    <!-- أزرار أندرويد -->
-    <div class="android-buttons">
-      <div class="triangle"></div>
-      <div class="circle"></div>
-      <div class="square"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
-
-
 
     <!-- قسم الميزات -->
     <section class="features" id="features">
@@ -1227,646 +472,119 @@ input::placeholder, textarea::placeholder {
                     <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار أو مشكلة قد تواجهها.</p>
                 </div>
             </div>
-            </div>
         </div>
     </section>
 
-<!-- قسم المنتجات -->
-<section class="products" id="products">
-    <div class="products-container">
-        <h2 class="section-title">منتجاتنا المميزة</h2>
-        <p class="section-subtitle">اختر من مجموعة واسعة من الحسابات المميزة</p>
-        <div class="products-grid">
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/LX8NxBGD/15-JD.jpg" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-    <div class="product-content">
-        <h3 class="product-title">حساب متوسط !</h3>
-        <div class="product-price">15 د.أ</div>
-        <ul class="product-features">
-            <li>المستوى: 55.</li>
-            <li>سلاح ايفو: 1.</li>
-            <li>ميزة الحساب: موجود فير 16.</li>
-            <li>ضمان: 15 يوم.</li>
-            <li>دعم فني مجاني.</li>
-        </ul>
-        <a href="https://www.instagram.com/p/DMqKr5iIOe-/" target="_blank">
-            <button class="btn btn-primary" style="width: 100%;">
-                <i class="fas fa-search"></i> استكشف أكثر
-            </button>
-        </a>
-    </div>
-</div>
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/N0Hxt2gw/image.png" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-    <div class="product-content">
-        <h3 class="product-title">حساب جميل !</h3>
-        <div class="product-price">45 د.أ</div>
-        <ul class="product-features">
-            <li>المستوى: 54.</li>
-            <li>سلاح ايفو: 2.</li>
-            <li>ميزة الحساب: موجود كل الفانتوم.</li>
-            <li>ضمان: مضمون.</li>
-            <li>دعم فني مجاني.</li>
-        </ul>
-        <a href="https://www.instagram.com/p/DMfVVidIs7E/" target="_blank">
-            <button class="btn btn-primary" style="width: 100%;">
-                <i class="fas fa-search"></i> استكشف أكثر
-            </button>
-        </a>
-    </div>
-</div>
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/s2YgT55M/60-JD.jpg" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-                <div class="product-content">
-                    <h3 class="product-title">حساب مقبول !</h3>
-                    <div class="product-price">60 د.أ</div>
-                    <ul class="product-features">
-                        <li>المستوى: 59.</li>
-                        <li>سلاح ايفو: 4.</li>
-                        <li>ميزة الحساب: موجود الجاز.</li>
-                        <li>ضمان: مضمون.</li>
-                        <li>دعم فني مجاني.</li>
-                    </ul>
-                    <a href="https://www.instagram.com/p/DMdSD_YIfyM/" target="_blank">
+    <!-- قسم المنتجات -->
+    <section class="products" id="products">
+        <div class="products-container">
+            <h2 class="section-title">منتجاتنا المميزة</h2>
+            <p class="section-subtitle">اختر من مجموعة واسعة من الحسابات المميزة</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/LX8NxBGD/15-JD.jpg" alt="حساب متوسط">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">حساب متوسط</h3>
+                        <div class="product-price">15 د.أ</div>
+                        <ul class="product-features">
+                            <li>المستوى: 55</li>
+                            <li>سلاح ايفو: 1</li>
+                            <li>ميزة الحساب: موجود فير 16</li>
+                            <li>ضمان: 15 يوم</li>
+                            <li>دعم فني مجاني</li>
+                        </ul>
                         <button class="btn btn-primary" style="width: 100%;">
                             <i class="fas fa-search"></i> استكشف أكثر
                         </button>
-                    </a>
+                    </div>
                 </div>
-            </div>
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/bJqNWdR3/75-JD.png" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-                <div class="product-content">
-                    <h3 class="product-title">حساب قوي !</h3>
-                    <div class="product-price">75 د.أ</div>
-                    <ul class="product-features">
-                        <li>المستوى: 71.</li>
-                        <li>سلاح ايفو: 7.</li>
-                        <li>ميزة الحساب: موجود فيه اشياء نادرة جداً.</li>
-                        <li>ضمان: مضمون.</li>
-                        <li>دعم فني مجاني.</li>
-                    </ul>
-                    <a href="https://www.instagram.com/p/DMdTOBOovUo/" target="_blank">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/zv97Xmv2/30-JD.jpg" alt="حساب جميل">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">حساب جميل</h3>
+                        <div class="product-price">30 د.أ</div>
+                        <ul class="product-features">
+                            <li>المستوى: 54</li>
+                            <li>سلاح ايفو: 2</li>
+                            <li>ميزة الحساب: موجود كل الفانتوم</li>
+                            <li>ضمان: مضمون</li>
+                            <li>دعم فني مجاني</li>
+                        </ul>
                         <button class="btn btn-primary" style="width: 100%;">
                             <i class="fas fa-search"></i> استكشف أكثر
                         </button>
-                    </a>
+                    </div>
                 </div>
-            </div>
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/9M1FhV8V/125-JD.png" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-                <div class="product-content">
-                    <h3 class="product-title">حساب أسطوري !</h3>
-                    <div class="product-price">125 د.أ</div>
-                    <ul class="product-features">
-                        <li>المستوى: 75.</li>
-                        <li>سلاح ايفو: 1 - 2 ماكس.</li>
-                        <li>ميزة الحساب: موجود 630 بلوزة.</li>
-                        <li>ضمان: مضمون.</li>
-                        <li>دعم فني مجاني.</li>
-                    </ul>
-                    <a href="https://www.instagram.com/p/DMdPXqFoed4/" target="_blank">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/s2YgT55M/60-JD.jpg" alt="حساب مقبول">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">حساب مقبول</h3>
+                        <div class="product-price">60 د.أ</div>
+                        <ul class="product-features">
+                            <li>المستوى: 59</li>
+                            <li>سلاح ايفو: 4</li>
+                            <li>ميزة الحساب: موجود الجاز</li>
+                            <li>ضمان: مضمون</li>
+                            <li>دعم فني مجاني</li>
+                        </ul>
                         <button class="btn btn-primary" style="width: 100%;">
                             <i class="fas fa-search"></i> استكشف أكثر
                         </button>
-                    </a>
-                </div>
-            </div>
-
-<div class="product-card">
-<div class="product-image" style="width: 100%; height: 150px; overflow: hidden;">
-    <img src="https://i.postimg.cc/ZnRYYg2N/365-JD.jpg" 
-         alt="حساب مميز" 
-         style="width: 100%; height: 100%; object-fit: cover;">
-</div>
-                <div class="product-content">
-                    <h3 class="product-title">الحساب الأقوى والمدمر !</h3>
-                    <div class="product-price">365 د.أ</div>
-                    <ul class="product-features">
-                        <li>المستوى: 76.</li>
-                        <li>سلاح ايفو: 4.</li>
-                        <li>ميزة الحساب: موجود فير 5 + 6 + 7 + 8.</li>
-                        <li>ضمان: مضمون.</li>
-                        <li>دعم فني مجاني.</li>
-                    </ul>
-                    <a href="https://www.instagram.com/p/DMqLGyJofT0/" target="_blank">
-                        <button class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-search"></i> استكشف أكثر
-                        </button>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- قسم الإحصائيات -->
-    <section class="stats">
-        <div class="stats-container">
-            <h2 class="section-title">أرقامنا تتحدث</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">عميل راضي</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">0+</div>
-                    <div class="stat-label">حساب مُباع</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">99.9%</div>
-                    <div class="stat-label">معدل الرضا</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">دعم فني</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-<!-- قسم آراء العملاء -->
-<section class="testimonials">
-    <div class="testimonials-container">
-        <h2 class="section-title">ماذا يقول عملاؤنا</h2>
-        <p class="section-subtitle">تجارب حقيقية من عملائنا الكرام</p>
-        <div class="testimonials-grid">
-
-            <!-- الكرت الأول -->
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"يا جماعه الخير للامانه هاد افضل متجر وتعاملهم كويس كثير و ثقه ومحترمين جداً ونصيحه تعاملو معهم❤️❤️".</p>
-                <div class="customer-info">
-                    <div class="customer-name">إبراهيم بشار</div>
-                    <div class="customer-title">عميل منذ 1 شهر</div>
-                </div>
-            </div>
-
-            <!-- الكرت الثاني -->
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p>"شكرا كثير للتعامل السهل والرائع.. شكرا لكم وانصح الجميع بالشراء منكم 🌹🌹".</p>
-                <div class="customer-info">
-                    <div class="customer-name">أمير</div>
-                    <div class="customer-title">عميل منذ 2 أشهر</div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-        
-
-    <!-- نموذج تسجيل الدخول -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('login')">&times;</span>
-            <div class="modal-header">
-                <h2>🔥 تسجيل الدخول</h2>
-                <p>مرحباً بك مرة أخرى!</p>
-            </div>
-            <div class="modal-body">
-                <div class="success-message" id="loginSuccess">
-                    تم تسجيل الدخول بنجاح! مرحباً بك في Hamoda Store
-                </div>
-                <form id="loginForm" onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="loginEmail">البريد الإلكتروني</label>
-                        <input type="email" id="loginEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginPassword">كلمة المرور</label>
-                        <input type="password" id="loginPassword" class="form-control" placeholder="أدخل كلمة المرور" required>
-                    </div>
-                    <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" id="rememberMe">
-                            تذكرني
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
-                        <i class="fas fa-sign-in-alt"></i>
-                        تسجيل الدخول
-                    </button>
-                    <div style="text-align: center;">
-                        <a href="#" style="color: #dc2626; text-decoration: none;" onclick="openModal('forgot')">نسيت كلمة المرور؟</a>
-                    </div>
-                </form>
-                <div class="loading" id="loginLoading">
-                    <div class="spinner"></div>
-                    <p>جاري تسجيل الدخول...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- نموذج التسجيل -->
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('register')">&times;</span>
-            <div class="modal-header">
-                <h2>🚀 إنشاء حساب جديد</h2>
-                <p>انضم إلى عائلة Hamoda Store</p>
-            </div>
-            <div class="modal-body">
-                <div class="success-message" id="registerSuccess">
-                    تم إنشاء الحساب بنجاح! مرحباً بك في Hamoda Store
-                </div>
-                <form id="registerForm" onsubmit="handleRegister(event)">
-                    <div class="form-group">
-                        <label for="registerName">الاسم الكامل</label>
-                        <input type="text" id="registerName" class="form-control" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerEmail">البريد الإلكتروني</label>
-                        <input type="email" id="registerEmail" class="form-control" placeholder="أدخل بريدك الإلكتروني" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPhone">رقم الهاتف</label>
-                        <input type="tel" id="registerPhone" class="form-control" placeholder="أدخل رقم هاتفك" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="registerPassword">كلمة المرور</label>
-                        <input type="password" id="registerPassword" class="form-control" placeholder="أدخل كلمة مرور قوية" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirmPassword">تأكيد كلمة المرور</label>
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
-                    </div>
-                    <div class="form-group">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
-                            <input type="checkbox" id="agreeTerms" required>
-                            أوافق على الشروط والأحكام
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-user-plus"></i>
-                        إنشاء الحساب
-                    </button>
-                </form>
-                <div class="loading" id="registerLoading">
-                    <div class="spinner"></div>
-                    <p>جاري إنشاء الحساب...</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- الفوتر -->
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>🔥 Hamoda Store</h3>
                     <p>متجر حسابات فري فاير الأول والأكثر أماناً في المنطقة.. نوفر لك أفضل الحسابات بأسعار منافسة وضمان شامل.</p>
-<div class="social-links">
-  <a href="https://www.instagram.com/hamoda.store.1/" class="social-link" target="_blank" title="إنستغرام">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://mail.google.com/mail/?view=cm&to=hamoda.store.top1@gmail.com&su=طلب%20المراسلة" target="_blank" class="social-link" title="راسلنا على جيميل">
-  <i class="fas fa-envelope"></i>
-</a>
-
-  </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/hamoda.store.1/" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:hamoda.store.top1@gmail.com" class="social-link" target="_blank">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>اختصارات </h3>
+                    <h3>روابط سريعة</h3>
                     <a href="#home">الرئيسية</a>
                     <a href="#features">الميزات</a>
                     <a href="#products">المنتجات</a>
                     <a href="https://www.instagram.com/hamoda.store.1/" target="_blank">تواصل معنا</a>
                 </div>
-                <div class="footer-section">
-                    <h3>تواصل معنا</h3>
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-envelope" style="color: #dc2626;"></i>
-                            <span>hamoda.store.top1@gmail.com</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fas fa-clock" style="color: #dc2626;"></i>
-                            <span>24/7 دعم فني</span>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hamoda Store جميع الحقوق محفوظة.. تصميم وتطوير بواسطة فريق Hamoda 777.</p>
+                <p>&copy; 2025 Hamoda Store. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
     <!-- زر التمرير للأعلى -->
-    <button class="scroll-top" onclick="scrollToTop()">
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- الإشعار -->
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i>
-        <span id="notificationText">رسالة تأكيد</span>
-    </div>
-
     <script>
-        // المتغيرات العامة
-        let currentUser = null;
-        let cart = [];
-
         // تبديل القائمة المتنقلة
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
-            const menuIcon = document.getElementById('menuIcon');
-            
             navMenu.classList.toggle('active');
-            
-            if (navMenu.classList.contains('active')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
-            } else {
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            }
         }
 
-        // إغلاق القائمة عند النقر على رابط
-        function closeMenu() {
-            const navMenu = document.getElementById('navMenu');
-            const menuIcon = document.getElementById('menuIcon');
-            
-            navMenu.classList.remove('active');
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        }
-
-        // وظائف النماذج
-        function openModal(type) {
-            const modal = document.getElementById(type + 'Modal');
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                closeMenu(); // إغلاق القائمة عند فتح النموذج
-            }
-        }
-
-        function closeModal(type) {
-            const modal = document.getElementById(type + 'Modal');
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                // إعادة تعيين النماذج
-                const form = document.getElementById(type + 'Form');
-                if (form) form.reset();
-                
-                // إخفاء رسائل النجاح
-                const success = document.getElementById(type + 'Success');
-                if (success) success.style.display = 'none';
-                
-                // إخفاء التحميل
-                const loading = document.getElementById(type + 'Loading');
-                if (loading) loading.style.display = 'none';
-            }
-        }
-
-        // إغلاق النموذج عند النقر خارجها
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // تسجيل الدخول
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('loginForm');
-            const loading = document.getElementById('loginLoading');
-            const success = document.getElementById('loginSuccess');
-            
-            // عرض التحميل
-            form.style.display = 'none';
-            loading.style.display = 'block';
-            
-            // محاكاة اتصال API
-            setTimeout(() => {
-                const email = document.getElementById('loginEmail').value;
-                const password = document.getElementById('loginPassword').value;
-                
-                // تحقق بسيط (في التطبيق الحقيقي، سيتم التحقق من الخادم)
-                if (email && password) {
-                    currentUser = {
-                        email: email,
-                        name: email.split('@')[0]
-                    };
-                    
-                    // إخفاء التحميل وعرض رسالة النجاح
-                    loading.style.display = 'none';
-                    success.style.display = 'block';
-                    
-                    // تحديث واجهة المستخدم
-                    updateUserInterface();
-                    
-                    // عرض الإشعار
-                    showNotification('تم تسجيل الدخول بنجاح! مرحباً بك ' + currentUser.name);
-                    
-                    // إغلاق النموذج بعد تأخير
-                    setTimeout(() => {
-                        closeModal('login');
-                    }, 2000);
-                } else {
-                    // إخفاء التحميل وعرض النموذج
-                    loading.style.display = 'none';
-                    form.style.display = 'block';
-                    showNotification('خطأ في البيانات المدخلة', 'error');
-                }
-            }, 1500);
-        }
-
-        // التسجيل
-        function handleRegister(event) {
-            event.preventDefault();
-            
-            const form = document.getElementById('registerForm');
-            const loading = document.getElementById('registerLoading');
-            const success = document.getElementById('registerSuccess');
-            
-            // الحصول على بيانات النموذج
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const phone = document.getElementById('registerPhone').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            // التحقق من تطابق كلمة المرور
-            if (password !== confirmPassword) {
-                showNotification('كلمات المرور غير متطابقة', 'error');
-                return;
-            }
-            
-            // عرض التحميل
-            form.style.display = 'none';
-            loading.style.display = 'block';
-            
-            // محاكاة اتصال API
-            setTimeout(() => {
-                currentUser = {
-                    name: name,
-                    email: email,
-                    phone: phone
-                };
-                
-                // إخفاء التحميل وعرض رسالة النجاح
-                loading.style.display = 'none';
-                success.style.display = 'block';
-                
-                // تحديث واجهة المستخدم
-                updateUserInterface();
-                
-                // عرض الإشعار
-                showNotification('تم إنشاء الحساب بنجاح! مرحباً بك ' + currentUser.name);
-                
-                // إغلاق النموذج بعد تأخير
-                setTimeout(() => {
-                    closeModal('register');
-                }, 2000);
-            }, 2000);
-        }
-
-        // تحديث واجهة المستخدم
-        function updateUserInterface() {
-            const authButtons = document.querySelector('.auth-buttons');
-            if (currentUser && authButtons) {
-                authButtons.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 0.8rem; color: white; font-size: 0.9rem;">
-                        <span>مرحباً، ${currentUser.name}</span>
-                        <button class="btn btn-secondary" onclick="logout()">
-                            <i class="fas fa-sign-out-alt"></i>
-                            تسجيل الخروج
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        // تسجيل الخروج
-        function logout() {
-            currentUser = null;
-            const authButtons = document.querySelector('.auth-buttons');
-            authButtons.innerHTML = `
-                <button class="btn btn-secondary" onclick="openModal('login')">
-                    <i class="fas fa-sign-in-alt"></i>
-                    تسجيل الدخول
-                </button>
-                <button class="btn btn-primary" onclick="openModal('register')">
-                    <i class="fas fa-user-plus"></i>
-                    إنشاء حساب
-                </button>
-            `;
-            showNotification('تم تسجيل الخروج بنجاح');
-        }
-
-        // شراء منتج
-        function buyProduct(productName, price) {
-            if (!currentUser) {
-                showNotification('يجب تسجيل الدخول أولاً لإتمام عملية الشراء', 'error');
-                openModal('login');
-                return;
-            }
-            
-            // إضافة إلى السلة
-            const product = {
-                name: productName,
-                price: price,
-                id: Date.now()
-            };
-            
-            cart.push(product);
-            showNotification(`تم إضافة ${productName} إلى السلة بنجاح!`);
-            
-            // محاكاة عملية الشراء
-            setTimeout(() => {
-                showNotification('جاري معالجة الطلب...');
-                
-                setTimeout(() => {
-                    showNotification(`تم شراء ${productName} بنجاح! سيتم إرسال تفاصيل الحساب قريباً`);
-                    
-                    // إرسال إشعار بالبريد الإلكتروني (محاكاة)
-                    sendEmailNotification(currentUser.email, productName);
-                }, 1500);
-            }, 1000);
-        }
-
-        // إرسال إشعار بالبريد الإلكتروني (محاكاة)
-        function sendEmailNotification(email, productName) {
-            console.log(`إرسال إشعار بريد إلكتروني إلى: ${email}`);
-            console.log(`المنتج: ${productName}`);
-            console.log('تم إرسال تفاصيل الحساب بنجاح!');
-        }
-
-        // عرض الإشعارات
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            const notificationText = document.getElementById('notificationText');
-            
-            notificationText.textContent = message;
-            notification.style.background = type === 'error' 
-                ? 'linear-gradient(135deg, #dc2626, #b91c1c)' 
-                : 'linear-gradient(135deg, #059669, #047857)';
-            
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-
-        // التمرير إلى القسم
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                window.scrollTo({
-                    top: section.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-                closeMenu(); // إغلاق القائمة عند النقر على رابط
-            }
-        }
-
-        // التمرير إلى الأعلى
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // إظهار زر التمرير للأعلى عند التمرير
+        // إظهار زر التمرير للأعلى
         window.onscroll = function() {
             const scrollTopBtn = document.querySelector('.scroll-top');
             if (window.pageYOffset > 300) {
@@ -1875,11 +593,6 @@ input::placeholder, textarea::placeholder {
                 scrollTopBtn.classList.remove('show');
             }
         };
-
-        // التهيئة عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', function() {
-            // أي كود تهيئة يمكن وضعه هنا
-        });
     </script>
 </body>
 </html>

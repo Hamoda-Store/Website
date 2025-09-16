@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="animated-section"></section>
+    <div class="signin">
+        <div class="content">
+            <div class="logo">
+                <img src="https://i.postimg.cc/d1Cz1TCM/image.png" alt="Logo">
+            </div>
+            <h2>Sign Up</h2>
+            <div class="form">
+                <div class="inputBox">
+                    <input type="text" id="signupUsername" required>
+                    <i>اسم المستخدم</i>
+                </div>
+                <div class="inputBox">
+                    <input type="email" id="signupEmail" required>
+                    <i>البريد الإلكتروني</i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="signupPassword" required>
+                    <i>كلمة المرور</i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="signupConfirmPassword" required>
+                    <i>تأكيد كلمة المرور</i>
+                </div>
+                <div id="signupError" class="error-message"></div>
+                <div class="links">
+                    <a href="login.html">Log In</a>
+                </div>
+                <form onsubmit="return handleSignup(event)">
+                    <div class="inputBox">
+                        <input type="submit" value="إنشاء حساب">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function createSpans() {
+            const section = document.getElementById('animated-section');
+            const existingSpans = section.querySelectorAll('span');
+            existingSpans.forEach(span => span.remove());
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            let spanSize;
+            if (screenWidth <= 320) spanSize = 28;
+            else if (screenWidth <= 480) spanSize = 35;
+            else if (screenWidth <= 768) spanSize = 50;
+            else if (screenWidth <= 1024) spanSize = Math.floor(screenWidth * 0.08);
+            else spanSize = Math.floor(screenWidth * 0.05);
+
+            const cols = Math.ceil(screenWidth / (spanSize + 1));
+            const rows = Math.ceil(screenHeight / (spanSize + 1));
+            const totalSpans = cols * rows;
+
+            for (let i = 0; i < totalSpans; i++) {
+                const span = document.createElement('span');
+                span.style.width = `${spanSize}px`;
+                span.style.height = `${spanSize}px`;
+                section.appendChild(span);
+            }
+        }
+
+        function validatePasswords() {
+            const password = document.getElementById('signupPassword');
+            const confirmPassword = document.getElementById('signupConfirmPassword');
+            const errorElement = document.getElementById('signupError');
+
+            confirmPassword.addEventListener('input', function() {
+                if (password.value !== confirmPassword.value) {
+                    errorElement.textContent = 'كلمات المرور غير متطابقة';
+                } else {
+                    errorElement.textContent = '';
+                }
+            });
+
+            password.addEventListener('input', function() {
+                if (password.value !== confirmPassword.value && confirmPassword.value !== '') {
+                    errorElement.textContent = 'كلمات المرور غير متطابقة';
+                } else {
+                    errorElement.textContent = '';
+                }
+            });
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('signupUsername').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const errorElement = document.getElementById('signupError');
+
+            if (!username || !email || !password || !confirmPassword) {
+                errorElement.textContent = 'يرجى ملء جميع الحقول';
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                errorElement.textContent = 'كلمات المرور غير متطابقة';
+                return false;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userExists = users.some(user => user.email === email);
+
+            if (userExists) {
+                errorElement.textContent = 'البريد الإلكتروني مستخدم بالفعل';
+                return false;
+            }
+
+            users.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            alert('تم إنشاء الحساب بنجاح!');
+            window.location.href = 'login.html';
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createSpans();
+            validatePasswords();
+            window.addEventListener('resize', createSpans);
+        });
+    </script>
+</body>
+</html>

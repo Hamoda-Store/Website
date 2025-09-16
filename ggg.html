@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .welcome-message {
+            text-align: center;
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <section id="animated-section"></section>
+    <div class="signin">
+        <div class="content">
+            <div class="logo">
+                <img src="https://i.postimg.cc/d1Cz1TCM/image.png" alt="Logo">
+            </div>
+            <h2>Welcome</h2>
+            <div class="welcome-message" id="welcomeMessage"></div>
+            <div class="form">
+                <form>
+                    <div class="inputBox">
+                        <input type="button" value="Log Out" onclick="handleLogout()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function createSpans() {
+            const section = document.getElementById('animated-section');
+            const existingSpans = section.querySelectorAll('span');
+            existingSpans.forEach(span => span.remove());
+
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            let spanSize;
+            if (screenWidth <= 320) spanSize = 28;
+            else if (screenWidth <= 480) spanSize = 35;
+            else if (screenWidth <= 768) spanSize = 50;
+            else if (screenWidth <= 1024) spanSize = Math.floor(screenWidth * 0.08);
+            else spanSize = Math.floor(screenWidth * 0.05);
+
+            const cols = Math.ceil(screenWidth / (spanSize + 1));
+            const rows = Math.ceil(screenHeight / (spanSize + 1));
+            const totalSpans = cols * rows;
+
+            for (let i = 0; i < totalSpans; i++) {
+                const span = document.createElement('span');
+                span.style.width = `${spanSize}px`;
+                span.style.height = `${spanSize}px`;
+                section.appendChild(span);
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createSpans();
+            window.addEventListener('resize', createSpans);
+
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+            const welcomeMessage = document.getElementById('welcomeMessage');
+
+            if (loggedInUser) {
+                welcomeMessage.textContent = `مرحباً ${loggedInUser.username} !`;
+            } else {
+                welcomeMessage.textContent = 'لم يتم تسجيل الدخول';
+            }
+        });
+    </script>
+</body>
+</html>
